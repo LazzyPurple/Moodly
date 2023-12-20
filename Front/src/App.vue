@@ -1,22 +1,30 @@
 <template>
   <div class="feeling-page">
+    <h1 class="Title">Comment-vous sentez vous aujourd'hui ?</h1>
     <div class="image-container">
       <img :src="currentImage" alt="Feeling Image"/>
     </div>
-    <input type="range" min="1" :max="images.length" v-model="sliderValue" class="image-slider"/>
+    <input type="range" min="1" :max="images.length" v-model="sliderValue" class="image-slider" />
     <button @click="sendSliderData" class="continue-button">Envoyer</button>
   </div>
 </template>
 
 <script>
+import panda1 from '@/assets/panda 1.svg';
+import panda2 from '@/assets/panda 2.svg';
+import panda3 from '@/assets/panda 3.svg';
+import panda4 from '@/assets/panda 4.svg';
+import panda5 from '@/assets/panda 5.svg';
 export default {
   data() {
     return {
       images: [
-        'https://em-content.zobj.net/source/apple/354/grinning-face_1f600.png',
-        'https://em-content.zobj.net/source/google/387/grinning-face_1f600.png',
-        'https://em-content.zobj.net/source/microsoft/379/grinning-face_1f600.png'
-      ], // Remplacer par les chemins de vos images
+        panda1,
+        panda2,
+        panda3,
+        panda4,
+        panda5,
+      ],
       sliderValue: 1
     }
   },
@@ -36,16 +44,22 @@ export default {
 
 <style>
 .feeling-page {
+  width: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: space-around;
   background-color: #fff; /* Couleur de fond (à ajuster selon vos besoins) */
 }
 
+.Title {
+  color: #000000;
+  font-weight: 700;
+}
+
 .image-container img {
-  width: 150px; /* Taille de l'image (à ajuster selon vos besoins) */
+  width: 400px; /* Taille de l'image (à ajuster selon vos besoins) */
   margin-bottom: 30px; /* Espacement entre l'image et le slider */
 }
 
@@ -53,8 +67,9 @@ export default {
   -webkit-appearance: none;
   appearance: none;
   width: 70%;
-  height: 10px;
-  border-radius: 5px;
+  height: 60px;
+  border-radius: 60px;
+  border: 4px solid #000000;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
@@ -66,16 +81,18 @@ export default {
 .image-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  padding-left: 12px;
+  margin-right: -12px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
 }
 
 .image-slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
